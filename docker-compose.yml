@@ -1,0 +1,10 @@
+services:
+  oficio:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - DAILY_COST_LIMIT=${DAILY_COST_LIMIT:-5.0}
+    volumes:
+      - ./traces:/app/traces

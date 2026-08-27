@@ -1,0 +1,553 @@
+{
+  "version": "1.0.0",
+  "currency": "USD",
+  "description": "Anonymized real-world remodeling price book (labor + materials). Derived from a live construction business; prices scaled and jittered.",
+  "items": [
+    {
+      "id": "range_hood",
+      "name": "Kitchen range hood",
+      "category": "appliances",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 69.06,
+      "materials_included": true
+    },
+    {
+      "id": "water_heater",
+      "name": "Water heater",
+      "category": "appliances",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 185.72,
+      "materials_included": true
+    },
+    {
+      "id": "demolition_job",
+      "name": "Demolition (per job)",
+      "category": "demolition",
+      "kind": "labor",
+      "unit": "unit",
+      "labor_cost": 34.92,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "electrical_full_unit",
+      "name": "Electrical work, full unit",
+      "category": "electrical",
+      "kind": "labor",
+      "unit": "dwelling",
+      "labor_cost": 59.84,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "electrical_materials_unit",
+      "name": "Electrical materials, full unit",
+      "category": "electrical",
+      "kind": "material",
+      "unit": "dwelling",
+      "labor_cost": 0.0,
+      "material_cost": 57.99,
+      "materials_included": true
+    },
+    {
+      "id": "acrylic_bonder_1gal",
+      "name": "Acrylic bonding agent, 1 gal",
+      "category": "finishes",
+      "kind": "material",
+      "unit": "gallon",
+      "labor_cost": 0.0,
+      "material_cost": 13.76,
+      "materials_included": true
+    },
+    {
+      "id": "acrylic_bonder_5gal",
+      "name": "Acrylic bonding agent, 5 gal",
+      "category": "finishes",
+      "kind": "material",
+      "unit": "bucket_5gal",
+      "labor_cost": 0.0,
+      "material_cost": 65.4,
+      "materials_included": true
+    },
+    {
+      "id": "skim_coat_powder_25kg",
+      "name": "Skim-coat powder, 25 kg bag",
+      "category": "finishes",
+      "kind": "material",
+      "unit": "bag",
+      "labor_cost": 0.0,
+      "material_cost": 10.38,
+      "materials_included": true
+    },
+    {
+      "id": "bath_accessory_set",
+      "name": "Bathroom accessory set",
+      "category": "fixtures",
+      "kind": "material",
+      "unit": "set",
+      "labor_cost": 0.0,
+      "material_cost": 20.78,
+      "materials_included": true
+    },
+    {
+      "id": "bathroom_sink",
+      "name": "Bathroom sink",
+      "category": "fixtures",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 28.08,
+      "materials_included": true
+    },
+    {
+      "id": "glass_shower_hinged",
+      "name": "Tempered glass shower enclosure, hinged",
+      "category": "fixtures",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 134.4,
+      "materials_included": true
+    },
+    {
+      "id": "glass_shower_sliding",
+      "name": "Tempered glass shower enclosure, sliding",
+      "category": "fixtures",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 161.52,
+      "materials_included": true
+    },
+    {
+      "id": "kitchen_mixer_tap",
+      "name": "Kitchen mixer tap",
+      "category": "fixtures",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 28.45,
+      "materials_included": true
+    },
+    {
+      "id": "security_lock_installed",
+      "name": "Security lock (installed)",
+      "category": "fixtures",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 23.82,
+      "materials_included": true
+    },
+    {
+      "id": "shower_head",
+      "name": "Shower head",
+      "category": "fixtures",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 9.16,
+      "materials_included": true
+    },
+    {
+      "id": "shower_mixer",
+      "name": "Shower mixer valve",
+      "category": "fixtures",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 18.0,
+      "materials_included": true
+    },
+    {
+      "id": "sink_faucet",
+      "name": "Sink faucet",
+      "category": "fixtures",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 18.45,
+      "materials_included": true
+    },
+    {
+      "id": "toilet",
+      "name": "Toilet",
+      "category": "fixtures",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 118.11,
+      "materials_included": true
+    },
+    {
+      "id": "utility_sink",
+      "name": "Utility sink",
+      "category": "fixtures",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 28.41,
+      "materials_included": true
+    },
+    {
+      "id": "ceramic_tile_standard",
+      "name": "Ceramic tile, standard grade (m2)",
+      "category": "flooring",
+      "kind": "material",
+      "unit": "m2",
+      "labor_cost": 0.0,
+      "material_cost": 9.61,
+      "materials_included": true
+    },
+    {
+      "id": "tile_adhesive_25kg",
+      "name": "Tile adhesive, 25 kg bag",
+      "category": "flooring",
+      "kind": "material",
+      "unit": "bag",
+      "labor_cost": 0.0,
+      "material_cost": 5.54,
+      "materials_included": true
+    },
+    {
+      "id": "tile_install_bath_new_build",
+      "name": "Bathroom tiling (new build)",
+      "category": "flooring",
+      "kind": "labor",
+      "unit": "m2",
+      "labor_cost": 8.01,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "tile_install_mortar_bed",
+      "name": "Tile installation over mortar bed (incl. baseboard)",
+      "category": "flooring",
+      "kind": "labor",
+      "unit": "m2",
+      "labor_cost": 6.86,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "tile_install_thinset",
+      "name": "Tile installation, thin-set only",
+      "category": "flooring",
+      "kind": "labor",
+      "unit": "m2",
+      "labor_cost": 5.65,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "gas_certification",
+      "name": "Gas installation certification",
+      "category": "gas",
+      "kind": "labor",
+      "unit": "unit",
+      "labor_cost": 119.64,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "gas_heater_install",
+      "name": "Gas water heater installation",
+      "category": "gas",
+      "kind": "labor",
+      "unit": "unit",
+      "labor_cost": 42.32,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "gas_valve",
+      "name": "Gas valve",
+      "category": "gas",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 11.34,
+      "materials_included": true
+    },
+    {
+      "id": "gas_valve_install",
+      "name": "Gas valve installation",
+      "category": "gas",
+      "kind": "labor",
+      "unit": "unit",
+      "labor_cost": 12.88,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "kitchen_countertop",
+      "name": "Kitchen countertop",
+      "category": "kitchen",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 90.78,
+      "materials_included": true
+    },
+    {
+      "id": "kitchen_sink_inox",
+      "name": "Stainless kitchen sink 40x60",
+      "category": "kitchen",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 31.94,
+      "materials_included": true
+    },
+    {
+      "id": "bonding_sand_hauled_m3",
+      "name": "Bonding sand, hauled (m3)",
+      "category": "masonry",
+      "kind": "material",
+      "unit": "m3",
+      "labor_cost": 0.0,
+      "material_cost": 34.32,
+      "materials_included": true
+    },
+    {
+      "id": "cement_bag",
+      "name": "Gray cement (bag)",
+      "category": "masonry",
+      "kind": "material",
+      "unit": "bag",
+      "labor_cost": 0.0,
+      "material_cost": 8.16,
+      "materials_included": true
+    },
+    {
+      "id": "clay_block_10cm",
+      "name": "Clay block 10 cm",
+      "category": "masonry",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 0.48,
+      "materials_included": true
+    },
+    {
+      "id": "render_sand_hauled_m3",
+      "name": "Render sand, hauled (m3)",
+      "category": "masonry",
+      "kind": "material",
+      "unit": "m3",
+      "labor_cost": 0.0,
+      "material_cost": 34.08,
+      "materials_included": true
+    },
+    {
+      "id": "render_sand_m3",
+      "name": "Render sand, no hauling (m3)",
+      "category": "masonry",
+      "kind": "material",
+      "unit": "m3",
+      "labor_cost": 0.0,
+      "material_cost": 29.48,
+      "materials_included": true
+    },
+    {
+      "id": "paint_premium_5gal",
+      "name": "Premium interior paint, 5 gal",
+      "category": "painting",
+      "kind": "material",
+      "unit": "bucket_5gal",
+      "labor_cost": 0.0,
+      "material_cost": 63.95,
+      "materials_included": true
+    },
+    {
+      "id": "paint_standard_5gal",
+      "name": "Standard interior paint, 5 gal",
+      "category": "painting",
+      "kind": "material",
+      "unit": "bucket_5gal",
+      "labor_cost": 0.0,
+      "material_cost": 44.63,
+      "materials_included": true
+    },
+    {
+      "id": "painting_3_coats",
+      "name": "Painting, 3 coats (walls & ceilings)",
+      "category": "painting",
+      "kind": "labor",
+      "unit": "m2",
+      "labor_cost": 1.39,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "flexible_drain_kit",
+      "name": "Flexible drain kit with grate",
+      "category": "plumbing",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 7.03,
+      "materials_included": true
+    },
+    {
+      "id": "plumbing_full_unit",
+      "name": "Plumbing rough-in & finish, full unit",
+      "category": "plumbing",
+      "kind": "labor",
+      "unit": "dwelling",
+      "labor_cost": 115.39,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "plumbing_materials_unit",
+      "name": "Plumbing materials, full unit",
+      "category": "plumbing",
+      "kind": "material",
+      "unit": "dwelling",
+      "labor_cost": 0.0,
+      "material_cost": 119.79,
+      "materials_included": true
+    },
+    {
+      "id": "sink_pop_up_drain",
+      "name": "Sink pop-up drain",
+      "category": "plumbing",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 6.87,
+      "materials_included": true
+    },
+    {
+      "id": "supply_hose_valve",
+      "name": "Supply hose with shut-off valve",
+      "category": "plumbing",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 5.71,
+      "materials_included": true
+    },
+    {
+      "id": "utility_sink_install",
+      "name": "Utility sink installation",
+      "category": "plumbing",
+      "kind": "labor",
+      "unit": "unit",
+      "labor_cost": 6.88,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "debris_removal",
+      "name": "Construction debris removal",
+      "category": "services",
+      "kind": "labor",
+      "unit": "dwelling",
+      "labor_cost": 23.89,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "material_hauling_in",
+      "name": "Material hauling into unit",
+      "category": "services",
+      "kind": "labor",
+      "unit": "dwelling",
+      "labor_cost": 239.27,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "post_construction_cleaning",
+      "name": "Post-construction cleaning (incl. supplies)",
+      "category": "services",
+      "kind": "labor",
+      "unit": "dwelling",
+      "labor_cost": 94.94,
+      "material_cost": 0.0,
+      "materials_included": true
+    },
+    {
+      "id": "drywall_sheet",
+      "name": "Drywall sheet",
+      "category": "walls",
+      "kind": "material",
+      "unit": "unit",
+      "labor_cost": 0.0,
+      "material_cost": 10.58,
+      "materials_included": true
+    },
+    {
+      "id": "masonry_wall_build",
+      "name": "Masonry wall construction",
+      "category": "walls",
+      "kind": "labor",
+      "unit": "m2",
+      "labor_cost": 4.54,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "plastering_new_build_bath",
+      "name": "Bathroom plastering (new build)",
+      "category": "walls",
+      "kind": "labor",
+      "unit": "m2",
+      "labor_cost": 4.31,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "plastering_new_build_facade",
+      "name": "Facade plastering (new build)",
+      "category": "walls",
+      "kind": "labor",
+      "unit": "m2",
+      "labor_cost": 3.61,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "plastering_new_build_interior",
+      "name": "Interior wall plastering (new build)",
+      "category": "walls",
+      "kind": "labor",
+      "unit": "m2",
+      "labor_cost": 3.59,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "wall_plastering",
+      "name": "Wall plastering (cement render)",
+      "category": "walls",
+      "kind": "labor",
+      "unit": "m2",
+      "labor_cost": 2.81,
+      "material_cost": 0.0,
+      "materials_included": false
+    },
+    {
+      "id": "wall_skim_coat",
+      "name": "Wall skim coat (stucco finish)",
+      "category": "walls",
+      "kind": "labor",
+      "unit": "m2",
+      "labor_cost": 2.29,
+      "material_cost": 0.0,
+      "materials_included": false
+    }
+  ],
+  "rules": {
+    "default_margin": 0.25,
+    "margin_floor": 0.2,
+    "rounding": "ceil_material_units",
+    "tile_price_cap_per_m2": 9.21
+  }
+}
