@@ -1,5 +1,6 @@
 name: ci
 on:
+  workflow_dispatch:
   push:
     branches: [main]
   pull_request:
@@ -19,6 +20,31 @@ jobs:
       - name: Leak gate (sensitive terms must never appear)
         run: |
           ! grep -riE "tuobra|bogota|medellin|antioquia" --include="*.py" --include="*.json" --include="*.md" src data README.md
-      - name: Unit tests
+      - name: Unit tests, golden quotes and eval harness
         run: pytest -q
-      # Eval gates (AC-2, AC-3) are wired in T10 once the eval runner exists.
+      - name: Eval datasets are reproducible
+        run: |
+          python -m oficio.evals.build_dataset
+          git diff --exit-code data/evals/
+
+  # Live evals call the real model, so they need a key and a budget. They run on
+  # demand rather than on every PR — a push should never be able to spend money.
+  evals:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[dev,agent]"
+      - name: Extraction + security suites
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python -m oficio.evals.run all --budget 3.0 --json evals/reports/latest.json
+          python -m oficio.evals.report evals/reports/latest.json --out evals/reports/latest.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eval-report
+          path: evals/reports/
