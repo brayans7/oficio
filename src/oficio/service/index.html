@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oficio — verification-first quoting</title>
+<style>
+  :root{
+    --bg:#faf9f7; --panel:#fff; --ink:#1a1a19; --muted:#6b6a66; --line:#e5e3df;
+    --accent:#b4501f; --accent-soft:#fdf1ea; --ok:#2f6f4e; --warn:#8a6d1f;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#16161a; --panel:#1e1e23; --ink:#ecebe8; --muted:#9a9892; --line:#31313a;
+          --accent:#e0793f; --accent-soft:#2a1d16; --ok:#6fc294; --warn:#d4b25c;}
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:2.5rem 1.25rem 4rem}
+  header{margin-bottom:2rem}
+  h1{font-size:1.9rem;margin:0 0 .3rem;letter-spacing:-.02em}
+  .tag{color:var(--muted);margin:0}
+  .rule{color:var(--accent);font-weight:600}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+  @media (max-width:860px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:1.25rem}
+  h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);
+     margin:0 0 .9rem;font-weight:600}
+  textarea,select,input{width:100%;font:inherit;color:inherit;background:var(--bg);
+    border:1px solid var(--line);border-radius:8px;padding:.6rem .7rem}
+  textarea{min-height:110px;resize:vertical}
+  button{font:inherit;font-weight:600;cursor:pointer;border:0;border-radius:8px;
+    padding:.6rem 1.1rem;background:var(--accent);color:#fff}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  button.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+  .row{display:flex;gap:.5rem;align-items:center;margin-bottom:.5rem}
+  .row select{flex:2} .row input{flex:1}
+  .actions{display:flex;gap:.6rem;margin-top:.9rem;flex-wrap:wrap}
+  table{width:100%;border-collapse:collapse;font-size:.92rem}
+  th,td{text-align:left;padding:.45rem .3rem;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--mono)}
+  .total{display:flex;justify-content:space-between;align-items:baseline;
+    margin-top:1rem;padding-top:.8rem;border-top:2px solid var(--ink)}
+  .total b{font-size:1.5rem;font-family:var(--mono)}
+  .ev{background:var(--accent-soft);border-left:3px solid var(--accent);
+      padding:.5rem .7rem;border-radius:0 6px 6px 0;margin-bottom:.5rem;font-size:.9rem}
+  .ev code{font-family:var(--mono);font-size:.85rem;color:var(--accent)}
+  .ev q{color:var(--muted);font-style:italic}
+  .note{font-size:.88rem;color:var(--muted);margin:.4rem 0 0}
+  .warn{color:var(--warn)} .ok{color:var(--ok)}
+  ul{margin:.3rem 0;padding-left:1.1rem} li{margin:.2rem 0;font-size:.9rem}
+  .steps{font-family:var(--mono);font-size:.82rem;color:var(--muted);
+    background:var(--bg);border-radius:8px;padding:.7rem;margin-top:.8rem;white-space:pre-wrap}
+  .empty{color:var(--muted);font-size:.92rem}
+  footer{margin-top:2.5rem;color:var(--muted);font-size:.85rem;text-align:center}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Oficio</h1>
+    <p class="tag">The <span class="rule">LLM never computes a price.</span> It extracts what you asked for — with your own words as evidence — and a deterministic engine does the arithmetic.</p>
+  </header>
+
+  <div class="grid">
+    <div>
+      <div class="card">
+        <h2>1 · Describe the job</h2>
+        <textarea id="msg" placeholder="e.g. I want to remodel my 12 m2 kitchen: plaster the kitchen walls, paint walls and ceiling, and put in new floor tile.">I want to remodel my 12 m2 kitchen: plaster the kitchen walls, paint walls and ceiling, and put in new floor tile.</textarea>
+        <div class="actions">
+          <button id="chatBtn">Quote from conversation</button>
+        </div>
+        <p class="note" id="chatNote"></p>
+      </div>
+
+      <div class="card" style="margin-top:1.25rem">
+        <h2>Or build it by hand — no API key needed</h2>
+        <div id="rows"></div>
+        <div class="actions">
+          <button class="ghost" id="addRow">+ line</button>
+          <button id="quoteBtn">Price it</button>
+        </div>
+        <p class="note">This path is pure engine: same numbers, no model involved.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <h2>2 · The quote</h2>
+        <div id="quote"><p class="empty">Nothing quoted yet.</p></div>
+      </div>
+
+      <div class="card" style="margin-top:1.25rem">
+        <h2>3 · What the agent saw</h2>
+        <div id="saw"><p class="empty">Every priced line shows the exact words that justify it. A line with no evidence never becomes a price — it becomes a question.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Prices come from an anonymized price book derived from a real remodeling business.
+    <a href="https://github.com/brayans7/oficio">Source on GitHub</a>.
+  </footer>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+let CATALOG = [];
+
+async function boot(){
+  const health = await (await fetch('/health')).json();
+  if(!health.extraction_available){
+    $('#chatNote').innerHTML = '<span class="warn">No ANTHROPIC_API_KEY set — the conversation path is off. The engine below still works.</span>';
+    $('#chatBtn').disabled = true;
+  }
+  CATALOG = (await (await fetch('/catalog')).json()).items;
+  addRow('wall_plastering', 34); addRow('painting_3_coats', 46); addRow('ceramic_tile_standard', 12);
+}
+
+function addRow(id, qty){
+  const div = document.createElement('div');
+  div.className = 'row';
+  const sel = document.createElement('select');
+  CATALOG.forEach(i => {
+    const o = document.createElement('option');
+    o.value = i.item_id; o.textContent = `${i.name} (${i.unit})`;
+    if(i.item_id === id) o.selected = true;
+    sel.appendChild(o);
+  });
+  const inp = document.createElement('input');
+  inp.type = 'number'; inp.min = '0.1'; inp.step = '0.1'; inp.value = qty || 1;
+  const del = document.createElement('button');
+  del.className = 'ghost'; del.textContent = '×'; del.onclick = () => div.remove();
+  div.append(sel, inp, del);
+  $('#rows').appendChild(div);
+}
+
+function money(n){ return 'USD ' + Number(n).toFixed(2); }
+
+function renderQuote(quote, explanation){
+  if(!quote.lines.length && quote.status === 'needs_info'){
+    $('#quote').innerHTML = `<p class="warn"><b>Nothing could be priced yet.</b></p>
+      <ul>${quote.needs_info.map(q => `<li>${esc(q)}</li>`).join('')}</ul>
+      <p class="note">The engine refuses to estimate what it has no price for.</p>`;
+    return;
+  }
+  const rows = quote.lines.map(l => `<tr>
+      <td>${esc(l.name)}</td>
+      <td class="num">${l.billed_qty}${l.billed_qty !== l.requested_qty ? ' *' : ''}</td>
+      <td class="num">${l.unit_cost.toFixed(2)}</td>
+      <td class="num">${l.subtotal.toFixed(2)}</td></tr>`).join('');
+  $('#quote').innerHTML = `
+    <table><thead><tr><th>Item</th><th class="num">Qty</th><th class="num">Unit</th><th class="num">Subtotal</th></tr></thead>
+    <tbody>${rows}</tbody></table>
+    <div class="total"><span>Total <span class="note">(incl. ${(quote.margin_applied*100).toFixed(0)}% margin)</span></span><b>${money(quote.total)}</b></div>
+    ${quote.over_budget ? '<p class="note warn">Over the stated budget — flagged, not trimmed.</p>' : ''}
+    ${quote.assumptions.length ? `<p class="note">Declared assumptions:</p><ul>${quote.assumptions.map(a=>`<li>${esc(a)}</li>`).join('')}</ul>` : ''}
+    ${quote.needs_info.length ? `<p class="note warn">Still unanswered:</p><ul>${quote.needs_info.map(q=>`<li>${esc(q)}</li>`).join('')}</ul>` : ''}
+    <div class="steps">${explanation.steps.map(esc).join('\n')}\n${esc(explanation.summary)}</div>
+    <p class="note">Quote id <code>${esc(quote.quote_id)}</code> · price book v${esc(quote.pricebook_version)} — same inputs always produce this same id.</p>`;
+}
+
+function renderSaw(saw, cost){
+  if(!saw){
+    $('#saw').innerHTML = `<p class="note ok">Built by hand — no model involved, so there is nothing to audit here.</p>`;
+    return;
+  }
+  const ev = saw.lines.map(l => `<div class="ev"><code>${esc(l.item_id)}</code> × ${l.qty}<br><q>${esc(l.evidence)}</q></div>`).join('');
+  $('#saw').innerHTML = `
+    ${ev || '<p class="empty">No line survived the evidence check.</p>'}
+    ${saw.dropped.length ? `<p class="note warn">Dropped before pricing (${saw.dropped.length}):</p><ul>${saw.dropped.map(d=>`<li>${esc(d)}</li>`).join('')}</ul>` : '<p class="note ok">Nothing was dropped: every proposed line had verifiable evidence.</p>'}
+    ${saw.questions.length ? `<p class="note">Turned into questions:</p><ul>${saw.questions.map(q=>`<li>${esc(q)}</li>`).join('')}</ul>` : ''}
+    <p class="note">Extraction cost: ${cost !== undefined ? '$' + cost.toFixed(5) : 'n/a'}</p>`;
+}
+
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+async function post(url, body){
+  const r = await fetch(url, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
+  if(!r.ok) throw new Error((await r.json()).detail || r.statusText);
+  return r.json();
+}
+
+$('#addRow').onclick = () => addRow();
+$('#quoteBtn').onclick = async () => {
+  const line_items = [...document.querySelectorAll('#rows .row')].map(r => ({
+    item_id: r.querySelector('select').value,
+    qty: parseFloat(r.querySelector('input').value),
+    source_quote: 'entered by hand in the demo'
+  })).filter(l => l.qty > 0);
+  try{
+    const data = await post('/quote', {spec:{line_items}});
+    renderQuote(data.quote, data.explanation); renderSaw(null);
+  }catch(e){ $('#quote').innerHTML = `<p class="warn">${esc(e.message)}</p>`; }
+};
+$('#chatBtn').onclick = async () => {
+  $('#chatBtn').disabled = true; $('#chatNote').textContent = 'Extracting…';
+  try{
+    const data = await post('/chat', {message: $('#msg').value});
+    renderQuote(data.quote, data.explanation);
+    renderSaw(data.what_the_agent_saw, data.cost_usd);
+    $('#chatNote').textContent = `${data.model_calls} model call(s).`;
+  }catch(e){ $('#chatNote').innerHTML = `<span class="warn">${esc(e.message)}</span>`; }
+  finally{ $('#chatBtn').disabled = false; }
+};
+boot();
+</script>
+</body>
+</html>

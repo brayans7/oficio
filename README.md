@@ -22,25 +22,27 @@ Most AI demos ask you to trust them. Oficio is designed to be *verified* instead
 
 ## Status — honest and public
 
-**v0.4 — Week 3 of 4. 130 tests green, CI enforcing every gate below.**
+**v0.5 — Week 4 of 4. 162 tests green, CI enforcing every gate below.**
+
+![The Oficio demo: a quote with its arithmetic and the evidence behind every line](docs/demo.png)
 
 Done and verified:
 
 - **Deterministic engine** — Decimal money math, whole-unit billing for discrete materials (you can't buy 3.2 bags of cement), margin-floor enforcement, `needs_info` for anything unpriced, content-hashed reproducible quote ids. **30 frozen golden quotes reproduced to the cent in CI.**
 - **Hardened model client** — fail-closed pricing (an untariffed model raises; it never costs $0), daily budget refused *before* the call is made, exponential backoff on 429/5xx only, one JSONL trace per call with tokens, cost and latency.
 - **Extraction with mandatory evidence** — the model may only pick ids from the catalog, and every line must quote the customer verbatim. Evidence not found in the transcript is dropped and turned into a question.
-- **Eval suites** — 100 labeled conversations (60 complete, 25 unanswerable-as-stated, 15 noisy) and 20 adversarial ones (instruction override, price tampering, prompt exfiltration, encoded payloads, fabricated evidence). The harness is itself tested: the scorer has to prove it catches a wrong quantity, a missed item and an invented one.
+- **Eval suites** — 100 labeled conversations and 20 adversarial ones. The harness is itself tested: the scorer has to prove it catches a wrong quantity, a missed item and an invented one.
+- **MCP server** — `get_catalog`, `create_quote`, `explain_quote`. A buying agent can quote without scraping a form, and `explain_quote` returns the arithmetic line by line: an agent that cannot explain a number should not send it.
+- **API and demo** — `/quote` prices deterministically **with no API key at all**, because the engine is the product; `/chat` adds extraction and refuses clearly when no key is set rather than degrading into a guess. The page's third panel, *what the agent saw*, shows the exact customer words behind every priced line and everything that was dropped before pricing.
 
 ### Eval results
 
 _Live runs call the real model, so they are triggered manually rather than on every push — a commit should never be able to spend money by accident. The table below is written by `python -m oficio.evals.report`, never by hand._
 
 <!-- EVAL_TABLE -->
-_No live eval run published yet. The harness, datasets and gates are in the repo and tested; the first published run lands with Week 4._
+_No live eval run published yet. The harness, datasets and gates are in the repo and tested; the first published run lands with the first key-backed run._
 
 The gate that matters: **invented values must be zero.** A line whose `source_quote` cannot be found in the conversation fails the whole run, no matter how good the other numbers look.
-
-Next: MCP server and web demo.
 
 Nothing here is claimed before it runs.
 
@@ -48,19 +50,59 @@ Nothing here is claimed before it runs.
 
 ```bash
 git clone https://github.com/brayans7/oficio && cd oficio
-pip install -e ".[dev]"
-pytest          # all green, including the price book leak-gate
+pip install -e ".[dev,agent]"
+pytest                                   # 162 tests, including the price-book leak gate
+uvicorn oficio.service.api:app --reload  # then open http://localhost:8000
 ```
+
+The demo prices real jobs with no API key. Set `ANTHROPIC_API_KEY` to enable the conversational path and the live eval suites.
+
+## How it works
+
+```
+customer conversation
+        │
+        ▼
+   extraction (LLM)          ← catalog-bounded; every line must quote the customer verbatim
+        │                      no evidence in the transcript → dropped, becomes a question
+        ▼
+      JobSpec                ← validated: known ids, positive quantities, real evidence
+        │
+        ▼
+   quote engine              ← deterministic. Decimal math, versioned price book,
+        │                      whole units for discrete materials, margin floor enforced
+        ▼
+   QuoteResult               ← content-hashed id: same inputs, same quote, forever
+```
+
+The model proposes. The engine disposes. Nothing that cannot be traced back to the customer's own words gets a price.
+
+### Using it from another agent (MCP)
+
+```python
+from oficio.service.mcp_tools import call_tool
+
+catalog = call_tool("get_catalog", {"category": "flooring"})
+quote = call_tool("create_quote", {"line_items": [
+    {"item_id": "ceramic_tile_standard", "qty": 12,
+     "source_quote": "I need new floor tile for the kitchen"},
+]})
+print(call_tool("explain_quote", {"quote": quote})["summary"])
+```
+
+Run it as a stdio MCP server with `python -m oficio.service.mcp_tools`.
 
 ## Architecture
 
 ```
 src/oficio/
-  core/    # deterministic: schemas, price book, quote engine — pure, no LLM imports
-  agent/   # conversational: extraction w/ evidence, model routing, cost meter, guardrails
-  evals/   # labeled datasets, runner, report generator — the public proof
+  core/     # deterministic: schemas, price book, quote engine — pure, no LLM imports
+  agent/    # conversational: extraction w/ evidence, model routing, cost meter, guardrails
+  evals/    # labeled datasets, runner, report generator — the public proof
+  service/  # MCP tools for agents, FastAPI + demo page for humans
 data/
   pricebook.v1.json   # anonymized real-world price book (labor + materials)
+  evals/              # 100 labeled conversations + 20 attacks
 ```
 
 Hard boundary: `agent/` imports `core/`. Never the reverse.
@@ -72,10 +114,18 @@ Hard boundary: `agent/` imports `core/`. Never the reverse.
 - **Fail-closed everywhere** — unknown item → `needs_info` (never estimate); model without a price entry → exception (never $0); missing secrets → refuse to start.
 - **No database in v1** — a JSON price book and JSONL traces are enough for the MVP. Deliberately out of scope: payments, auth, multi-tenancy, scheduling, a second vertical.
 
-## Provenance
+## Roadmap
+
+Deliberately out of scope for v1, and why: **payments** (the quote is the product; collecting is a separate problem), **auth and multi-tenancy** (one business, one price book — until a second one exists, it is speculation), **scheduling** (a different domain with its own failure modes), **a second vertical** (the point is to prove the pattern once, well).
+
+What is genuinely next: a labeled set built from **real transcripts** rather than composed ones — the current numbers measure this distribution, not the wild — and calibration of the price book against a second business, which is what would turn a working engine into a product.
+
+## Provenance and honesty
 
 The price book is derived from the live operations of a family remodeling business, with names removed and prices scaled by an undisclosed factor with per-item jitter — realistic ratios, protected business. The anonymization pipeline is private by design and enforced by a leak-gate test in CI.
 
+The eval conversations are **composed from templates**, not transcripts of real customers. That makes them reproducible and publishable, and it means reported accuracy is accuracy against this distribution. Said plainly here because a benchmark whose provenance is vague is a benchmark nobody should trust.
+
 ---
 
-Built with spec-driven development and Claude Code. MIT license.
+Built by [Brayan Molina](https://github.com/brayans7) with spec-driven development and Claude Code. MIT license.

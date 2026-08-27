@@ -6,4 +6,4 @@ COPY data/ data/
 RUN pip install --no-cache-dir -e ".[agent,dev]"
 COPY tests/ tests/
 EXPOSE 8000
-CMD ["python", "-c", "print('Oficio v0.1 — API arrives in T12. Run: pytest')"]
+CMD ["uvicorn", "oficio.service.api:app", "--host", "0.0.0.0", "--port", "8000"]
