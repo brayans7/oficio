@@ -22,7 +22,27 @@ Most AI demos ask you to trust them. Oficio is designed to be *verified* instead
 
 ## Status — honest and public
 
-**v0.2 — Week 1 of 4.** Done and tested: scaffold, anonymized price book (54 items), fail-closed lookups, and now the **deterministic quote engine** — Decimal money math, whole-unit billing for discrete materials (you can't buy 3.2 bags of cement), margin floor enforcement, `needs_info` for anything unpriced, content-hashed reproducible quote ids. **61 tests green, 100% coverage on `core/`, and the first hard gate is live: 30 frozen golden quotes reproduced to the cent in CI.** Next: agent layer (extraction with evidence, cost telemetry, guardrails), then evals, MCP server and web demo. Nothing is claimed before it runs.
+**v0.4 — Week 3 of 4. 130 tests green, CI enforcing every gate below.**
+
+Done and verified:
+
+- **Deterministic engine** — Decimal money math, whole-unit billing for discrete materials (you can't buy 3.2 bags of cement), margin-floor enforcement, `needs_info` for anything unpriced, content-hashed reproducible quote ids. **30 frozen golden quotes reproduced to the cent in CI.**
+- **Hardened model client** — fail-closed pricing (an untariffed model raises; it never costs $0), daily budget refused *before* the call is made, exponential backoff on 429/5xx only, one JSONL trace per call with tokens, cost and latency.
+- **Extraction with mandatory evidence** — the model may only pick ids from the catalog, and every line must quote the customer verbatim. Evidence not found in the transcript is dropped and turned into a question.
+- **Eval suites** — 100 labeled conversations (60 complete, 25 unanswerable-as-stated, 15 noisy) and 20 adversarial ones (instruction override, price tampering, prompt exfiltration, encoded payloads, fabricated evidence). The harness is itself tested: the scorer has to prove it catches a wrong quantity, a missed item and an invented one.
+
+### Eval results
+
+_Live runs call the real model, so they are triggered manually rather than on every push — a commit should never be able to spend money by accident. The table below is written by `python -m oficio.evals.report`, never by hand._
+
+<!-- EVAL_TABLE -->
+_No live eval run published yet. The harness, datasets and gates are in the repo and tested; the first published run lands with Week 4._
+
+The gate that matters: **invented values must be zero.** A line whose `source_quote` cannot be found in the conversation fails the whole run, no matter how good the other numbers look.
+
+Next: MCP server and web demo.
+
+Nothing here is claimed before it runs.
 
 ## Quickstart
 
