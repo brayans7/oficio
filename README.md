@@ -22,7 +22,7 @@ Most AI demos ask you to trust them. Oficio is designed to be *verified* instead
 
 ## Status — honest and public
 
-**v0.1 — Week 1 of 4.** Scaffold + anonymized price book (54 items) + fail-closed lookups: done and tested. Deterministic quote engine (T3), agent layer, evals, MCP server and web demo land in the coming weeks. This README updates as each gate turns green — nothing is claimed before it runs.
+**v0.2 — Week 1 of 4.** Done and tested: scaffold, anonymized price book (54 items), fail-closed lookups, and now the **deterministic quote engine** — Decimal money math, whole-unit billing for discrete materials (you can't buy 3.2 bags of cement), margin floor enforcement, `needs_info` for anything unpriced, content-hashed reproducible quote ids. **61 tests green, 100% coverage on `core/`, and the first hard gate is live: 30 frozen golden quotes reproduced to the cent in CI.** Next: agent layer (extraction with evidence, cost telemetry, guardrails), then evals, MCP server and web demo. Nothing is claimed before it runs.
 
 ## Quickstart
 

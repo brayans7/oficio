@@ -1,0 +1,1600 @@
+{
+  "pricebook_version": "1.0.0",
+  "cases": [
+    {
+      "case": 1,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "wall_plastering",
+            "qty": 10.0,
+            "source_quote": "plaster 10 m2 of walls"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_e099d7c620fe4e02",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "wall_plastering",
+            "name": "Wall plastering (cement render)",
+            "requested_qty": 10.0,
+            "billed_qty": 10.0,
+            "unit": "m2",
+            "unit_cost": 2.81,
+            "subtotal": 28.1
+          }
+        ],
+        "subtotal": 28.1,
+        "margin_applied": 0.25,
+        "total": 35.13,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 2,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "wall_skim_coat",
+            "qty": 25.0,
+            "source_quote": "skim coat the living room"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_adbadd0d9621e555",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "wall_skim_coat",
+            "name": "Wall skim coat (stucco finish)",
+            "requested_qty": 25.0,
+            "billed_qty": 25.0,
+            "unit": "m2",
+            "unit_cost": 2.29,
+            "subtotal": 57.25
+          }
+        ],
+        "subtotal": 57.25,
+        "margin_applied": 0.25,
+        "total": 71.56,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 3,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "painting_3_coats",
+            "qty": 48.0,
+            "source_quote": "paint everything, 3 coats"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_99a0d5ab5da340f0",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "painting_3_coats",
+            "name": "Painting, 3 coats (walls & ceilings)",
+            "requested_qty": 48.0,
+            "billed_qty": 48.0,
+            "unit": "m2",
+            "unit_cost": 1.39,
+            "subtotal": 66.72
+          }
+        ],
+        "subtotal": 66.72,
+        "margin_applied": 0.25,
+        "total": 83.4,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 4,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "tile_install_mortar_bed",
+            "qty": 18.0,
+            "source_quote": "tile the floor over mortar"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_3ad6bc96d1ac078f",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "tile_install_mortar_bed",
+            "name": "Tile installation over mortar bed (incl. baseboard)",
+            "requested_qty": 18.0,
+            "billed_qty": 18.0,
+            "unit": "m2",
+            "unit_cost": 6.86,
+            "subtotal": 123.48
+          }
+        ],
+        "subtotal": 123.48,
+        "margin_applied": 0.25,
+        "total": 154.35,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 5,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "masonry_wall_build",
+            "qty": 14.5,
+            "source_quote": "build the dividing wall"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_6d9f46e5bed3d893",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "masonry_wall_build",
+            "name": "Masonry wall construction",
+            "requested_qty": 14.5,
+            "billed_qty": 14.5,
+            "unit": "m2",
+            "unit_cost": 4.54,
+            "subtotal": 65.83
+          }
+        ],
+        "subtotal": 65.83,
+        "margin_applied": 0.25,
+        "total": 82.29,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 6,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "plastering_new_build_facade",
+            "qty": 60.0,
+            "source_quote": "plaster the facade"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_3b3c8186a8351ef3",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "plastering_new_build_facade",
+            "name": "Facade plastering (new build)",
+            "requested_qty": 60.0,
+            "billed_qty": 60.0,
+            "unit": "m2",
+            "unit_cost": 3.61,
+            "subtotal": 216.6
+          }
+        ],
+        "subtotal": 216.6,
+        "margin_applied": 0.25,
+        "total": 270.75,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 7,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "plumbing_full_unit",
+            "qty": 1.0,
+            "source_quote": "redo all the plumbing"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_a0101834be35842a",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "plumbing_full_unit",
+            "name": "Plumbing rough-in & finish, full unit",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "dwelling",
+            "unit_cost": 115.39,
+            "subtotal": 115.39
+          }
+        ],
+        "subtotal": 115.39,
+        "margin_applied": 0.25,
+        "total": 144.24,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 8,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "electrical_full_unit",
+            "qty": 1.0,
+            "source_quote": "rewire the whole unit"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_34f528f53d934351",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "electrical_full_unit",
+            "name": "Electrical work, full unit",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "dwelling",
+            "unit_cost": 59.84,
+            "subtotal": 59.84
+          }
+        ],
+        "subtotal": 59.84,
+        "margin_applied": 0.25,
+        "total": 74.8,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 9,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "cement_bag",
+            "qty": 3.2,
+            "source_quote": "cement for the render"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_749ab2d6e8149ca2",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "cement_bag",
+            "name": "Gray cement (bag)",
+            "requested_qty": 3.2,
+            "billed_qty": 4.0,
+            "unit": "bag",
+            "unit_cost": 8.16,
+            "subtotal": 32.64
+          }
+        ],
+        "subtotal": 32.64,
+        "margin_applied": 0.25,
+        "total": 40.8,
+        "assumptions": [
+          "Gray cement (bag): billed 4 whole bag(s) for a request of 3.2 \u2014 discrete units are never sold fractionally."
+        ],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 10,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "tile_adhesive_25kg",
+            "qty": 5.5,
+            "source_quote": "adhesive for the tiles"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_43985f4babf4717b",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "tile_adhesive_25kg",
+            "name": "Tile adhesive, 25 kg bag",
+            "requested_qty": 5.5,
+            "billed_qty": 6.0,
+            "unit": "bag",
+            "unit_cost": 5.54,
+            "subtotal": 33.24
+          }
+        ],
+        "subtotal": 33.24,
+        "margin_applied": 0.25,
+        "total": 41.55,
+        "assumptions": [
+          "Tile adhesive, 25 kg bag: billed 6 whole bag(s) for a request of 5.5 \u2014 discrete units are never sold fractionally."
+        ],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 11,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "paint_premium_5gal",
+            "qty": 1.1,
+            "source_quote": "premium paint"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_977c57c249d277fd",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "paint_premium_5gal",
+            "name": "Premium interior paint, 5 gal",
+            "requested_qty": 1.1,
+            "billed_qty": 2.0,
+            "unit": "bucket_5gal",
+            "unit_cost": 63.95,
+            "subtotal": 127.9
+          }
+        ],
+        "subtotal": 127.9,
+        "margin_applied": 0.25,
+        "total": 159.88,
+        "assumptions": [
+          "Premium interior paint, 5 gal: billed 2 whole bucket_5gal(s) for a request of 1.1 \u2014 discrete units are never sold fractionally."
+        ],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 12,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "clay_block_10cm",
+            "qty": 420.3,
+            "source_quote": "blocks for the wall"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_aa877cd5c80f8c18",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "clay_block_10cm",
+            "name": "Clay block 10 cm",
+            "requested_qty": 420.3,
+            "billed_qty": 421.0,
+            "unit": "unit",
+            "unit_cost": 0.48,
+            "subtotal": 202.08
+          }
+        ],
+        "subtotal": 202.08,
+        "margin_applied": 0.25,
+        "total": 252.6,
+        "assumptions": [
+          "Clay block 10 cm: billed 421 whole unit(s) for a request of 420.3 \u2014 discrete units are never sold fractionally."
+        ],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 13,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "toilet",
+            "qty": 2.0,
+            "source_quote": "two new toilets"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_a1ff1884c10abab6",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "toilet",
+            "name": "Toilet",
+            "requested_qty": 2.0,
+            "billed_qty": 2.0,
+            "unit": "unit",
+            "unit_cost": 118.11,
+            "subtotal": 236.22
+          }
+        ],
+        "subtotal": 236.22,
+        "margin_applied": 0.25,
+        "total": 295.28,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 14,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "glass_shower_sliding",
+            "qty": 1.0,
+            "source_quote": "sliding glass shower door"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_5b05e110953a3bea",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "glass_shower_sliding",
+            "name": "Tempered glass shower enclosure, sliding",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 161.52,
+            "subtotal": 161.52
+          }
+        ],
+        "subtotal": 161.52,
+        "margin_applied": 0.25,
+        "total": 201.9,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 15,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "wall_plastering",
+            "qty": 34.0,
+            "source_quote": "plaster the kitchen walls"
+          },
+          {
+            "item_id": "wall_skim_coat",
+            "qty": 34.0,
+            "source_quote": "smooth finish"
+          },
+          {
+            "item_id": "painting_3_coats",
+            "qty": 46.0,
+            "source_quote": "paint walls and ceiling"
+          },
+          {
+            "item_id": "tile_install_thinset",
+            "qty": 12.0,
+            "source_quote": "new floor tile"
+          },
+          {
+            "item_id": "ceramic_tile_standard",
+            "qty": 12.0,
+            "source_quote": "new floor tile"
+          },
+          {
+            "item_id": "tile_adhesive_25kg",
+            "qty": 2.4,
+            "source_quote": "new floor tile"
+          },
+          {
+            "item_id": "kitchen_mixer_tap",
+            "qty": 1.0,
+            "source_quote": "replace the tap"
+          }
+        ],
+        "space_type": "kitchen",
+        "area_m2": 12.0,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_cd9f1390736095e5",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "wall_plastering",
+            "name": "Wall plastering (cement render)",
+            "requested_qty": 34.0,
+            "billed_qty": 34.0,
+            "unit": "m2",
+            "unit_cost": 2.81,
+            "subtotal": 95.54
+          },
+          {
+            "item_id": "wall_skim_coat",
+            "name": "Wall skim coat (stucco finish)",
+            "requested_qty": 34.0,
+            "billed_qty": 34.0,
+            "unit": "m2",
+            "unit_cost": 2.29,
+            "subtotal": 77.86
+          },
+          {
+            "item_id": "painting_3_coats",
+            "name": "Painting, 3 coats (walls & ceilings)",
+            "requested_qty": 46.0,
+            "billed_qty": 46.0,
+            "unit": "m2",
+            "unit_cost": 1.39,
+            "subtotal": 63.94
+          },
+          {
+            "item_id": "tile_install_thinset",
+            "name": "Tile installation, thin-set only",
+            "requested_qty": 12.0,
+            "billed_qty": 12.0,
+            "unit": "m2",
+            "unit_cost": 5.65,
+            "subtotal": 67.8
+          },
+          {
+            "item_id": "ceramic_tile_standard",
+            "name": "Ceramic tile, standard grade (m2)",
+            "requested_qty": 12.0,
+            "billed_qty": 12.0,
+            "unit": "m2",
+            "unit_cost": 9.61,
+            "subtotal": 115.32
+          },
+          {
+            "item_id": "tile_adhesive_25kg",
+            "name": "Tile adhesive, 25 kg bag",
+            "requested_qty": 2.4,
+            "billed_qty": 3.0,
+            "unit": "bag",
+            "unit_cost": 5.54,
+            "subtotal": 16.62
+          },
+          {
+            "item_id": "kitchen_mixer_tap",
+            "name": "Kitchen mixer tap",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 28.45,
+            "subtotal": 28.45
+          }
+        ],
+        "subtotal": 465.53,
+        "margin_applied": 0.25,
+        "total": 581.91,
+        "assumptions": [
+          "Tile adhesive, 25 kg bag: billed 3 whole bag(s) for a request of 2.4 \u2014 discrete units are never sold fractionally."
+        ],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 16,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "tile_install_mortar_bed",
+            "qty": 22.0,
+            "source_quote": "tile floor and walls"
+          },
+          {
+            "item_id": "ceramic_tile_standard",
+            "qty": 22.0,
+            "source_quote": "tile floor and walls"
+          },
+          {
+            "item_id": "toilet",
+            "qty": 1.0,
+            "source_quote": "new toilet"
+          },
+          {
+            "item_id": "bathroom_sink",
+            "qty": 1.0,
+            "source_quote": "new sink"
+          },
+          {
+            "item_id": "sink_faucet",
+            "qty": 1.0,
+            "source_quote": "new faucet"
+          },
+          {
+            "item_id": "shower_mixer",
+            "qty": 1.0,
+            "source_quote": "new shower mixer"
+          },
+          {
+            "item_id": "bath_accessory_set",
+            "qty": 1.0,
+            "source_quote": "towel bars and accessories"
+          }
+        ],
+        "space_type": "bathroom",
+        "area_m2": 5.0,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_7089be3ec41cf0bb",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "tile_install_mortar_bed",
+            "name": "Tile installation over mortar bed (incl. baseboard)",
+            "requested_qty": 22.0,
+            "billed_qty": 22.0,
+            "unit": "m2",
+            "unit_cost": 6.86,
+            "subtotal": 150.92
+          },
+          {
+            "item_id": "ceramic_tile_standard",
+            "name": "Ceramic tile, standard grade (m2)",
+            "requested_qty": 22.0,
+            "billed_qty": 22.0,
+            "unit": "m2",
+            "unit_cost": 9.61,
+            "subtotal": 211.42
+          },
+          {
+            "item_id": "toilet",
+            "name": "Toilet",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 118.11,
+            "subtotal": 118.11
+          },
+          {
+            "item_id": "bathroom_sink",
+            "name": "Bathroom sink",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 28.08,
+            "subtotal": 28.08
+          },
+          {
+            "item_id": "sink_faucet",
+            "name": "Sink faucet",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 18.45,
+            "subtotal": 18.45
+          },
+          {
+            "item_id": "shower_mixer",
+            "name": "Shower mixer valve",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 18.0,
+            "subtotal": 18.0
+          },
+          {
+            "item_id": "bath_accessory_set",
+            "name": "Bathroom accessory set",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "set",
+            "unit_cost": 20.78,
+            "subtotal": 20.78
+          }
+        ],
+        "subtotal": 565.76,
+        "margin_applied": 0.25,
+        "total": 707.2,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 17,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "wall_skim_coat",
+            "qty": 42.0,
+            "source_quote": "smooth the walls"
+          },
+          {
+            "item_id": "painting_3_coats",
+            "qty": 58.0,
+            "source_quote": "repaint bedroom"
+          },
+          {
+            "item_id": "paint_standard_5gal",
+            "qty": 0.8,
+            "source_quote": "standard paint is fine"
+          }
+        ],
+        "space_type": "bedroom",
+        "area_m2": 16.0,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_a2495c9a50c51164",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "wall_skim_coat",
+            "name": "Wall skim coat (stucco finish)",
+            "requested_qty": 42.0,
+            "billed_qty": 42.0,
+            "unit": "m2",
+            "unit_cost": 2.29,
+            "subtotal": 96.18
+          },
+          {
+            "item_id": "painting_3_coats",
+            "name": "Painting, 3 coats (walls & ceilings)",
+            "requested_qty": 58.0,
+            "billed_qty": 58.0,
+            "unit": "m2",
+            "unit_cost": 1.39,
+            "subtotal": 80.62
+          },
+          {
+            "item_id": "paint_standard_5gal",
+            "name": "Standard interior paint, 5 gal",
+            "requested_qty": 0.8,
+            "billed_qty": 1.0,
+            "unit": "bucket_5gal",
+            "unit_cost": 44.63,
+            "subtotal": 44.63
+          }
+        ],
+        "subtotal": 221.43,
+        "margin_applied": 0.25,
+        "total": 276.79,
+        "assumptions": [
+          "Standard interior paint, 5 gal: billed 1 whole bucket_5gal(s) for a request of 0.8 \u2014 discrete units are never sold fractionally."
+        ],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 18,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "demolition_job",
+            "qty": 1.0,
+            "source_quote": "demolish the old kitchen"
+          },
+          {
+            "item_id": "debris_removal",
+            "qty": 1.0,
+            "source_quote": "haul away the debris"
+          },
+          {
+            "item_id": "material_hauling_in",
+            "qty": 1.0,
+            "source_quote": "bring materials up"
+          },
+          {
+            "item_id": "post_construction_cleaning",
+            "qty": 1.0,
+            "source_quote": "leave it clean"
+          }
+        ],
+        "space_type": "full_unit",
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_c9dd8ecc952f9f40",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "demolition_job",
+            "name": "Demolition (per job)",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 34.92,
+            "subtotal": 34.92
+          },
+          {
+            "item_id": "debris_removal",
+            "name": "Construction debris removal",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "dwelling",
+            "unit_cost": 23.89,
+            "subtotal": 23.89
+          },
+          {
+            "item_id": "material_hauling_in",
+            "name": "Material hauling into unit",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "dwelling",
+            "unit_cost": 239.27,
+            "subtotal": 239.27
+          },
+          {
+            "item_id": "post_construction_cleaning",
+            "name": "Post-construction cleaning (incl. supplies)",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "dwelling",
+            "unit_cost": 94.94,
+            "subtotal": 94.94
+          }
+        ],
+        "subtotal": 393.02,
+        "margin_applied": 0.25,
+        "total": 491.28,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 19,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "kitchen_countertop",
+            "qty": 1.0,
+            "source_quote": "new countertop"
+          },
+          {
+            "item_id": "kitchen_sink_inox",
+            "qty": 1.0,
+            "source_quote": "stainless sink"
+          },
+          {
+            "item_id": "kitchen_mixer_tap",
+            "qty": 1.0,
+            "source_quote": "mixer tap"
+          },
+          {
+            "item_id": "range_hood",
+            "qty": 1.0,
+            "source_quote": "range hood"
+          }
+        ],
+        "space_type": "kitchen",
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_17862ad944ee68a5",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "kitchen_countertop",
+            "name": "Kitchen countertop",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 90.78,
+            "subtotal": 90.78
+          },
+          {
+            "item_id": "kitchen_sink_inox",
+            "name": "Stainless kitchen sink 40x60",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 31.94,
+            "subtotal": 31.94
+          },
+          {
+            "item_id": "kitchen_mixer_tap",
+            "name": "Kitchen mixer tap",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 28.45,
+            "subtotal": 28.45
+          },
+          {
+            "item_id": "range_hood",
+            "name": "Kitchen range hood",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 69.06,
+            "subtotal": 69.06
+          }
+        ],
+        "subtotal": 220.23,
+        "margin_applied": 0.25,
+        "total": 275.29,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 20,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "gas_heater_install",
+            "qty": 1.0,
+            "source_quote": "install the gas heater"
+          },
+          {
+            "item_id": "water_heater",
+            "qty": 1.0,
+            "source_quote": "the heater itself"
+          },
+          {
+            "item_id": "gas_valve",
+            "qty": 1.0,
+            "source_quote": "gas valve"
+          },
+          {
+            "item_id": "gas_valve_install",
+            "qty": 1.0,
+            "source_quote": "install the valve"
+          },
+          {
+            "item_id": "gas_certification",
+            "qty": 1.0,
+            "source_quote": "get it certified"
+          }
+        ],
+        "space_type": "gas_works",
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_16ef77ebd195951d",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "gas_heater_install",
+            "name": "Gas water heater installation",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 42.32,
+            "subtotal": 42.32
+          },
+          {
+            "item_id": "water_heater",
+            "name": "Water heater",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 185.72,
+            "subtotal": 185.72
+          },
+          {
+            "item_id": "gas_valve",
+            "name": "Gas valve",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 11.34,
+            "subtotal": 11.34
+          },
+          {
+            "item_id": "gas_valve_install",
+            "name": "Gas valve installation",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 12.88,
+            "subtotal": 12.88
+          },
+          {
+            "item_id": "gas_certification",
+            "name": "Gas installation certification",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 119.64,
+            "subtotal": 119.64
+          }
+        ],
+        "subtotal": 371.9,
+        "margin_applied": 0.25,
+        "total": 464.88,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 21,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "plastering_new_build_interior",
+            "qty": 220.0,
+            "source_quote": "plaster interior walls"
+          },
+          {
+            "item_id": "plastering_new_build_bath",
+            "qty": 36.0,
+            "source_quote": "plaster the bathrooms"
+          },
+          {
+            "item_id": "tile_install_bath_new_build",
+            "qty": 36.0,
+            "source_quote": "tile the bathrooms"
+          },
+          {
+            "item_id": "cement_bag",
+            "qty": 48.0,
+            "source_quote": "cement"
+          },
+          {
+            "item_id": "render_sand_hauled_m3",
+            "qty": 6.5,
+            "source_quote": "sand delivered"
+          }
+        ],
+        "space_type": "new_build",
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_0121b1df3be242a9",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "plastering_new_build_interior",
+            "name": "Interior wall plastering (new build)",
+            "requested_qty": 220.0,
+            "billed_qty": 220.0,
+            "unit": "m2",
+            "unit_cost": 3.59,
+            "subtotal": 789.8
+          },
+          {
+            "item_id": "plastering_new_build_bath",
+            "name": "Bathroom plastering (new build)",
+            "requested_qty": 36.0,
+            "billed_qty": 36.0,
+            "unit": "m2",
+            "unit_cost": 4.31,
+            "subtotal": 155.16
+          },
+          {
+            "item_id": "tile_install_bath_new_build",
+            "name": "Bathroom tiling (new build)",
+            "requested_qty": 36.0,
+            "billed_qty": 36.0,
+            "unit": "m2",
+            "unit_cost": 8.01,
+            "subtotal": 288.36
+          },
+          {
+            "item_id": "cement_bag",
+            "name": "Gray cement (bag)",
+            "requested_qty": 48.0,
+            "billed_qty": 48.0,
+            "unit": "bag",
+            "unit_cost": 8.16,
+            "subtotal": 391.68
+          },
+          {
+            "item_id": "render_sand_hauled_m3",
+            "name": "Render sand, hauled (m3)",
+            "requested_qty": 6.5,
+            "billed_qty": 6.5,
+            "unit": "m3",
+            "unit_cost": 34.08,
+            "subtotal": 221.52
+          }
+        ],
+        "subtotal": 1846.52,
+        "margin_applied": 0.25,
+        "total": 2308.15,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 22,
+      "margin": 0.35,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "toilet",
+            "qty": 1.0,
+            "source_quote": "a toilet"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_b6724be928c7cdab",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "toilet",
+            "name": "Toilet",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 118.11,
+            "subtotal": 118.11
+          }
+        ],
+        "subtotal": 118.11,
+        "margin_applied": 0.35,
+        "total": 159.45,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 23,
+      "margin": 0.2,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "toilet",
+            "qty": 1.0,
+            "source_quote": "a toilet"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_a73f548eb7aeb018",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "toilet",
+            "name": "Toilet",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 118.11,
+            "subtotal": 118.11
+          }
+        ],
+        "subtotal": 118.11,
+        "margin_applied": 0.2,
+        "total": 141.73,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 24,
+      "margin": 0.05,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "toilet",
+            "qty": 1.0,
+            "source_quote": "a toilet"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_a73f548eb7aeb018",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "toilet",
+            "name": "Toilet",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 118.11,
+            "subtotal": 118.11
+          }
+        ],
+        "subtotal": 118.11,
+        "margin_applied": 0.2,
+        "total": 141.73,
+        "assumptions": [
+          "Requested margin 0.05 is below the floor 0.2; floor applied. Margins below the floor are a business rule violation."
+        ],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 25,
+      "margin": 0.3,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "wall_plastering",
+            "qty": 100.0,
+            "source_quote": "big job"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_6b0dfeada09e982d",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "wall_plastering",
+            "name": "Wall plastering (cement render)",
+            "requested_qty": 100.0,
+            "billed_qty": 100.0,
+            "unit": "m2",
+            "unit_cost": 2.81,
+            "subtotal": 281.0
+          }
+        ],
+        "subtotal": 281.0,
+        "margin_applied": 0.3,
+        "total": 365.3,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 26,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "gold_plated_jacuzzi",
+            "qty": 1.0,
+            "source_quote": "I want a gold jacuzzi"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_8156d6bb9b79d6ef",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "needs_info",
+        "lines": [],
+        "subtotal": 0.0,
+        "margin_applied": 0.25,
+        "total": 0.0,
+        "assumptions": [],
+        "needs_info": [
+          "'gold_plated_jacuzzi' is not in price book v1.0.0 \u2014 a price must be added or confirmed before quoting it. (customer said: 'I want a gold jacuzzi')"
+        ],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 27,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "toilet",
+            "qty": 1.0,
+            "source_quote": "a toilet"
+          },
+          {
+            "item_id": "smart_mirror",
+            "qty": 1.0,
+            "source_quote": "a smart mirror"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_d40774937c44d1a4",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "needs_info",
+        "lines": [
+          {
+            "item_id": "toilet",
+            "name": "Toilet",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 118.11,
+            "subtotal": 118.11
+          }
+        ],
+        "subtotal": 118.11,
+        "margin_applied": 0.25,
+        "total": 147.64,
+        "assumptions": [],
+        "needs_info": [
+          "'smart_mirror' is not in price book v1.0.0 \u2014 a price must be added or confirmed before quoting it. (customer said: 'a smart mirror')"
+        ],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 28,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "toilet",
+            "qty": 1.0,
+            "source_quote": "a toilet"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": [
+          "tile grade not specified"
+        ]
+      },
+      "expected": {
+        "quote_id": "q_6b2e9f021d458e59",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "needs_info",
+        "lines": [
+          {
+            "item_id": "toilet",
+            "name": "Toilet",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 118.11,
+            "subtotal": 118.11
+          }
+        ],
+        "subtotal": 118.11,
+        "margin_applied": 0.25,
+        "total": 147.64,
+        "assumptions": [],
+        "needs_info": [
+          "tile grade not specified"
+        ],
+        "over_budget": false
+      }
+    },
+    {
+      "case": 29,
+      "margin": null,
+      "spec": {
+        "line_items": [
+          {
+            "item_id": "water_heater",
+            "qty": 1.0,
+            "source_quote": "water heater"
+          }
+        ],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": 50.0,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_4109c29385c04454",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [
+          {
+            "item_id": "water_heater",
+            "name": "Water heater",
+            "requested_qty": 1.0,
+            "billed_qty": 1.0,
+            "unit": "unit",
+            "unit_cost": 185.72,
+            "subtotal": 185.72
+          }
+        ],
+        "subtotal": 185.72,
+        "margin_applied": 0.25,
+        "total": 232.15,
+        "assumptions": [
+          "Quoted total 232.15 exceeds the stated budget 50.0. Flagged for an explicit conversation \u2014 the engine does not trim scope on its own."
+        ],
+        "needs_info": [],
+        "over_budget": true
+      }
+    },
+    {
+      "case": 30,
+      "margin": null,
+      "spec": {
+        "line_items": [],
+        "space_type": null,
+        "area_m2": null,
+        "client_budget": null,
+        "missing_info": []
+      },
+      "expected": {
+        "quote_id": "q_2d9c6e5b70e28d9e",
+        "pricebook_version": "1.0.0",
+        "currency": "USD",
+        "status": "ok",
+        "lines": [],
+        "subtotal": 0.0,
+        "margin_applied": 0.25,
+        "total": 0.0,
+        "assumptions": [],
+        "needs_info": [],
+        "over_budget": false
+      }
+    }
+  ]
+}
