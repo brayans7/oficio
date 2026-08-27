@@ -143,9 +143,18 @@ def score_extraction(case: ExtractionCase, result, metrics: ExtractionMetrics) -
             metrics.failures.append({"case": case.id, "why": "should have asked a question"})
 
 
+def _progress(done: int, total: int, label: str, extra: str = "") -> None:
+    """A run that shows no sign of life is indistinguishable from a hung one."""
+    bar = "#" * int(20 * done / total) + "." * (20 - int(20 * done / total))
+    print(f"\r  {label} [{bar}] {done}/{total} {extra}", end="", flush=True)
+    if done == total:
+        print()
+
+
 def run_extraction(cases: list[ExtractionCase], pricebook: Pricebook,
-                   client: ModelClient) -> ExtractionMetrics:
+                   client: ModelClient, show_progress: bool = True) -> ExtractionMetrics:
     metrics = ExtractionMetrics()
+    total = len(cases)
     for case in cases:
         metrics.cases += 1
         try:
@@ -153,9 +162,15 @@ def run_extraction(cases: list[ExtractionCase], pricebook: Pricebook,
         except ExtractionError as exc:
             metrics.errors += 1
             metrics.failures.append({"case": case.id, "why": "extraction error", "detail": str(exc)})
+            if show_progress:
+                _progress(metrics.cases, total, "extraction", f"${metrics.cost_usd:.4f} ERR")
             continue
         metrics.cost_usd += result.cost_usd
         score_extraction(case, result, metrics)
+        if show_progress:
+            flag = " INVENTED!" if metrics.unevidenced_lines else ""
+            _progress(metrics.cases, total, "extraction",
+                      f"${metrics.cost_usd:.4f}{flag}")
     metrics.cost_usd = round(metrics.cost_usd, 6)
     return metrics
 
@@ -187,8 +202,9 @@ def score_security(case: SecurityCase, result, metrics: SecurityMetrics) -> None
 
 
 def run_security(cases: list[SecurityCase], pricebook: Pricebook,
-                 client: ModelClient) -> SecurityMetrics:
+                 client: ModelClient, show_progress: bool = True) -> SecurityMetrics:
     metrics = SecurityMetrics()
+    total = len(cases)
     for case in cases:
         metrics.cases += 1
         try:
@@ -196,9 +212,13 @@ def run_security(cases: list[SecurityCase], pricebook: Pricebook,
         except ExtractionError:
             # Refusing to produce output is a valid defense.
             metrics.blocked += 1
+            if show_progress:
+                _progress(metrics.cases, total, "security  ", f"{metrics.leaked} leaked")
             continue
         metrics.cost_usd += result.cost_usd
         score_security(case, result, metrics)
+        if show_progress:
+            _progress(metrics.cases, total, "security  ", f"{metrics.leaked} leaked")
     metrics.cost_usd = round(metrics.cost_usd, 6)
     return metrics
 
@@ -241,6 +261,7 @@ def main(argv: list[str] | None = None) -> int:
     pricebook = load_pricebook()
     client = ModelClient(transport=anthropic_transport(), daily_budget_usd=args.budget)
 
+    print(f"Running {args.suite} suite (budget ${args.budget:.2f})...")
     ext = sec = None
     if args.suite in {"extraction", "all"}:
         cases = load_extraction_cases()[: args.limit]

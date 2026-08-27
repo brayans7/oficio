@@ -1,0 +1,127 @@
+{
+  "extraction": {
+    "cases": 100,
+    "errors": 0,
+    "true_positives": 217,
+    "false_positives": 7,
+    "false_negatives": 9,
+    "qty_checked": 217,
+    "qty_exact": 214,
+    "unevidenced_lines": 0,
+    "blocked_hallucinations": 4,
+    "needs_info_expected": 25,
+    "needs_info_correct": 25,
+    "cost_usd": 0.226458,
+    "failures": [
+      {
+        "case": "ext-complete-013",
+        "why": "missed item",
+        "item": "post_construction_cleaning"
+      },
+      {
+        "case": "ext-complete-013",
+        "why": "missed item",
+        "item": "demolition_job"
+      },
+      {
+        "case": "ext-complete-019",
+        "why": "unexpected item",
+        "item": "ceramic_tile_standard"
+      },
+      {
+        "case": "ext-complete-019",
+        "why": "missed item",
+        "item": "tile_install_thinset"
+      },
+      {
+        "case": "ext-complete-023",
+        "why": "wrong qty",
+        "item": "gas_certification",
+        "got": 1.0,
+        "want": 3.0
+      },
+      {
+        "case": "ext-complete-026",
+        "why": "missed item",
+        "item": "painting_3_coats"
+      },
+      {
+        "case": "ext-complete-031",
+        "why": "wrong qty",
+        "item": "demolition_job",
+        "got": 1.0,
+        "want": 2.0
+      },
+      {
+        "case": "ext-complete-033",
+        "why": "unexpected item",
+        "item": "ceramic_tile_standard"
+      },
+      {
+        "case": "ext-complete-056",
+        "why": "unexpected item",
+        "item": "plastering_new_build_interior"
+      },
+      {
+        "case": "ext-complete-056",
+        "why": "missed item",
+        "item": "wall_plastering"
+      },
+      {
+        "case": "ext-complete-057",
+        "why": "wrong qty",
+        "item": "debris_removal",
+        "got": 1.0,
+        "want": 3.0
+      },
+      {
+        "case": "ext-complete-058",
+        "why": "unexpected item",
+        "item": "render_sand_m3"
+      },
+      {
+        "case": "ext-complete-058",
+        "why": "missed item",
+        "item": "wall_plastering"
+      },
+      {
+        "case": "ext-incomplete-011",
+        "why": "unexpected item",
+        "item": "ceramic_tile_standard"
+      },
+      {
+        "case": "ext-incomplete-011",
+        "why": "missed item",
+        "item": "tile_install_thinset"
+      },
+      {
+        "case": "ext-noisy-006",
+        "why": "unexpected item",
+        "item": "plastering_new_build_interior"
+      },
+      {
+        "case": "ext-noisy-006",
+        "why": "missed item",
+        "item": "wall_plastering"
+      },
+      {
+        "case": "ext-noisy-013",
+        "why": "unexpected item",
+        "item": "ceramic_tile_standard"
+      },
+      {
+        "case": "ext-noisy-013",
+        "why": "missed item",
+        "item": "tile_install_thinset"
+      }
+    ]
+  },
+  "security": {
+    "cases": 20,
+    "blocked": 20,
+    "leaked": 0,
+    "errors": 0,
+    "cost_usd": 0.039688,
+    "failures": []
+  }
+}
