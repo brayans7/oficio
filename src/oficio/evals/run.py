@@ -51,6 +51,7 @@ class ExtractionMetrics:
     needs_info_correct: int = 0
     cost_usd: float = 0.0
     failures: list[dict] = field(default_factory=list)
+    blocked: list[dict] = field(default_factory=list)   # what the validator caught, verbatim
 
     @property
     def precision(self) -> float:
@@ -133,7 +134,13 @@ def score_extraction(case: ExtractionCase, result, metrics: ExtractionMetrics) -
             metrics.failures.append({"case": case.id, "why": "UNEVIDENCED LINE",
                                      "item": line.item_id, "quote": line.source_quote})
 
+    # Count the drops AND keep them. A number tells you the validator fired;
+    # the reason tells you what the model tried, which is the interesting part
+    # and the only version of this that is worth showing anyone.
     metrics.blocked_hallucinations += len(result.dropped)
+    for reason in result.dropped:
+        metrics.blocked.append({"case": case.id, "reason": reason,
+                                "conversation": case.conversation})
 
     if case.expects_missing_info:
         metrics.needs_info_expected += 1
